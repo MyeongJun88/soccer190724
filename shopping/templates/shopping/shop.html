@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+    <h1>shop</h1>
+    <a href="{% url 'item1' %}">item1 로 가자</a>
+    <img src="{% static 'img/hazard.jpg' %}" alt="" class="hazard"></img>
+{% endblock %}

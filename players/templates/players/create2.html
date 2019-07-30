@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+#FF9BD2
+{% block content %}
+
+<style>
+
+.hi{
+    color: white;
+}
+.ccc {
+  background-color: #FF9BD2;
+  text-align: center;
+  padding: 80PX 20px 100px 20px;
+
+}
+
+
+</style>
+
+<h1>수비수 생성하기 </h1>
+<form action="{% url 'players:create2' %}" method="POST" enctype = "multipart/form-data" class="ccc">
+    {% csrf_token %}
+    <h1>수비수 생성하기 </h1>
+    <label>선수이름</label><br>
+    <input type="text" name="title"><br><br>
+    
+    <label>나이</label><br>
+    <input type="number" name="age"><br><br>
+    
+    <label>선수 설명</label><br>
+    <textarea name="description"></textarea><br><br>   
+    
+       
+    <label>선수사진</label><br>
+    <input type = "file" name = "image"><br><br>
+    
+    <input type="submit" class="btn btn-primary"value="등록">
+</form>
+
+{% endblock %}    

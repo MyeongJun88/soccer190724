@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<style>
+
+.hi{
+    color: white;
+}
+.look {
+  background-color: #6482B9;
+  padding: 80PX 20px 100px 20px;
+  
+
+}
+
+
+
+</style>
+<div class="look">
+   
+    <h1 style = text-align: "center";>선수 이름 : {{ player2.title1 }} </h1>
+    <h2>선수 나이 : {{ player2.age1 }} </h2>
+    <h3>조회수 : {{player2.view_count1}}</h3>
+    <p>상품 설명 : {{ player2.description1 }} </p>
+    
+
+    <a href="{% url 'players:edit' player.pk %}" class="btn btn-primary">수정</a>
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">삭제</a>
+    
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">정말 삭제하시겠습니까?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <form action="{% url 'players:delete' player.pk %}" method ="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="삭제" class="btn btn-primary">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+   <img src="{% static 'img/messi.jpg' %}" style="width : 550px; height:800px;">
+   <img src="{% static 'img/chelsea1.jpeg' %}" style="width : 550px;height:800px">
+{% endblock %}

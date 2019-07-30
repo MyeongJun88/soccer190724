@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>상품정보 수정하기</h1>
+<h2>hello</h2>
+
+<form action="{% url 'players:update' player.pk %}" method="POST" class="aaa">
+    {% csrf_token %}
+    <h1> 공격수 생성하기 </h1>
+    <label>선수이름</label><br>
+    <input type="text" name="title" value="{{player.title}}"  text-align="center"><br><br>
+    
+    <label>나이</label><br>
+    <input type="number" name="age" value="{{player.age}}"><br><br>
+    
+    <label>선수 설명</label><br>
+    <textarea name="description">{{player.description}}</textarea><br><br>
+
+   <!-- <label>사진 첨부하기</label>
+    <input type="file" name="file" accept="image/*"><br><br> -->
+    <input type="submit" class="btn btn-primary"value="수정">
+</form>
+
+{% endblock %}
